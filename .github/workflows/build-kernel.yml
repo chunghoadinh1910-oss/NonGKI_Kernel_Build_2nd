@@ -61,6 +61,13 @@ jobs:
     uses: ./.github/workflows/build-samsung-note10plus-oneui-a15.yml
     secrets: inherit
 
+  build-samsung-note9-crownlte-floyd-a13:
+    name: "Samsung Galaxy Note 9 (Floyd A13)"
+    strategy:
+      fail-fast: true
+    uses: ./.github/workflows/build-samsung-note9-crownlte-floyd-a13.yml
+    secrets: inherit
+
   # Smartisan
   build-smartisan-r1-smartisanos-a8:
     name: "Smartisan R1 (Smartisan OS A8.1)"
