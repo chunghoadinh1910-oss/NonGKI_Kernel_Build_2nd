@@ -1,0 +1,31 @@
+name: Build Samsung Galaxy Note 9 (Floyd A13)
+
+on:
+  workflow_call:
+
+jobs:
+  build-kernel:
+    uses: JackA1ltman/NonGKI_Kernel_Build_2nd/.github/workflows/build-kernel.yml@mainline
+    with:
+      # Thông tin thiết bị
+      device: "Samsung Galaxy Note 9"
+      codename: "crownlte"
+
+      # Nguồn kernel
+      kernel-url: "https://github.com/mrcxlinux/exynos9810-kernel-artplus"
+      kernel-branch: "NEXT"
+      defconfig: "crownlte_defconfig"
+      arch: "arm64"
+
+      # Toolchain (Có thể cần sửa nếu lỗi)
+      clang-source: "https://github.com/LineageOS/android_prebuilts_clang_kernel_linux-x86_clang-r416183b"
+      gcc-source: "https://github.com/mrcxlinux/exynos9810-gcc-4.9"
+
+      # KernelSU & SUSFS
+      ksu-variant: "SukiSU-Ultra"
+      ksu-url: "https://github.com/SukiSU-Ultra/SukiSU-Ultra"
+      susfs: true
+
+      # Đóng gói
+      anykernel3: true
+    secrets: inherit
